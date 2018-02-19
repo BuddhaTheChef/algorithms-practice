@@ -78,6 +78,40 @@ function maxChar(str) {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                       FizzBuzz
 
+function fizzBuzz(n) {
+  for (var i = 1; i <= n; i++) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      console.log('fizzbuzz')
+    }
+    else if(i % 3 === 0){
+      console.log('fizz')
+    }
+    else if(i % 5 === 0){
+      console.log('buzz')
+    }
+    else{
+      console.log(i);
+    }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+//                                    Array Chunking
+
+function chunk(array, size) {
+  let chunked = [];
+
+  for(let element of array) {
+    let last = chunked[chunked.length - 1];
+
+    if(!last || last.length === size) {
+      chunked.push([element]);
+    }
+    else {
+      last.push(element)
+    }
+  }
+  return chunked;
+}
 
 
 
