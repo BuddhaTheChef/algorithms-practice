@@ -97,6 +97,7 @@ function fizzBuzz(n) {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                    Array Chunking
 
+// Solution 1
 function chunk(array, size) {
   let chunked = [];
 
@@ -113,6 +114,21 @@ function chunk(array, size) {
   return chunked;
 }
 
+// Solution 2
+
+function chunk(array, size) {
+  const chunked = [];
+  let index = 0;
+
+  while(index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+  return chunked;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//                                       Anagrams
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
