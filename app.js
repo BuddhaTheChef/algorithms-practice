@@ -1,58 +1,58 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                  reverse a string
 
-// function reverse(str) {
-//   return str.split('').reduce((reversed, character) => {
-//     return character + reversed;
-//   }, '');
-// }
+function reverse(str) {
+  return str.split('').reduce((reversed, character) => {
+    return character + reversed;
+  }, '');
+}
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////
 
-// function reverse(str) {
-//   str = str.split('').reverse().join('')
-//   return str;
-// }
+function reverse(str) {
+  str = str.split('').reverse().join('')
+  return str;
+}
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////
 
-// function reverse(str) {
-//   let reversed = '';
-//   for(let character of str) {
-//     reversed = character + reversed;
-//   }
-//   return reversed;
-// }
+function reverse(str) {
+  let reversed = '';
+  for(let character of str) {
+    reversed = character + reversed;
+  }
+  return reversed;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+                                     Palindrome
+
+function palindrome(str) {
+return str.split('').every((char, index) => {
+  return char === str[str.length - index - 1];
+});
+}
+
+///////////////////////////////////////////////
+
+function palindrome(str) {
+  const reversed = str.split('').reverse().join('');
+
+  return str === reversed;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+                                reversed integer
+
+function reverseInt(n) {
+
+  const reversed = n.toString().split('').reverse().join('');
+  //math sign returns numbeer if it is negative or positive
+  return parseInt(reversed) * Math.sign(n);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
-//                                      Palindrome
-
-// function palindrome(str) {
-// return str.split('').every((char, index) => {
-//   return char === str[str.length - index - 1];
-// });
-// }
-
-/////////////////////////////////////////////////
-
-// function palindrome(str) {
-//   const reversed = str.split('').reverse().join('');
-//
-//   return str === reversed;
-// }
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-//                                 reversed integer
-
-// function reverseInt(n) {
-//
-//   const reversed = n.toString().split('').reverse().join('');
-//   //math sign returns numbeer if it is negative or positive
-//   return parseInt(reversed) * Math.sign(n);
-// }
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-//                             letter most used in a string
+                             letter most used in a string
 
 function maxChar(str) {
   const charMap = {};
@@ -595,6 +595,35 @@ class LinkedList {
     this.head = new Node(data);
     }
   }
+  getAt(index) {
+  if(!this.head) {
+    return null;
+  }
+  let counter = 0;
+  let node = this.head;
+  while(node) {
+    if (counter === index) {
+      return node;
+    }
+    counter++
+    node = node.next;
+  }
+  return null;
+}
+removeAt(index) {
+  if(!this.head) {
+    return;
+  }
+  if(index === 0) {
+    this.head = this.head.next;
+    return;
+  }
+  const previous = this.getAt(index - 1);
+  if(!previous || !previous.next) {
+    return;
+  }
+  previous.next = previous.next.next;
+}
 }
 
 
