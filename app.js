@@ -639,12 +639,40 @@ insertAt(data, index) {
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//                         Fast and slow Linked list example
 
+function midpoint(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while(fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
+//                        Circular linked list fast and slow
 
+function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
 
+  while(fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
 
+    if(slow === fast) {
+      return true;
+    }
+  }
+  return false;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// 
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
