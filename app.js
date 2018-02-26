@@ -706,6 +706,34 @@ class Node {
     });
   }
 }
+
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+  traverseBF(fn) {
+    const arr = [this.root];
+    while(arr.length) {
+      const node = arr.shift();
+      //for(let child of node.children) {
+      //  arr.push(child);
+      //  }
+      //or
+      arr.push(...node.children);
+      fn(node);
+    }
+  }
+  traverseDF(fn) {
+    const arr = [this.root];
+    while(arr.length) {
+      const node = arr.shift();
+
+      arr.unshift(...node.children);
+      fn(node);
+    }
+  }
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
